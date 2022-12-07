@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>그림으로 보는 웹/HTTP - 7장 상태 저장 방식 예제 코드</title>
+</head>
+<body>
+  <script>
+    // cookie
+    function setCookie(c_name, value, exdays)
+    {
+      var exdate = new Date();
+      exdate.setDate(exdate.getDate() + exdays);
+      var c_value = encodeURIComponent(value) + ((exdays==null) ? "" : "; expires=" + exdate.toUTCString());
+      document.cookie=c_name + "=" + c_value;
+    }
+    setCookie("username", "Jiyoung", 14)
+    setCookie("age", 20, 14)
+    setCookie("password", 12345678)
+
+    // localStorage
+    localStorage.setItem("username", "Jiyoung");
+    localStorage.setItem("age", "20");
+    localStorage.setItem("password", "12345678");
+
+    // indexedDB
+    const request = indexedDB.open("library");
+    let db;
+    request.onupgradeneeded = function() {
+      const db = request.result;
+      const store = db.createObjectStore("books", { keyPath: "isbn" });
+      const titleIndex = store.createIndex("by_title", "title", { unique: true });
+      const authorIndex = store.createIndex("by_author", "author");
+      store.put({ title: "개발자로 성장하기", author: "김네트", isbn: 123456 });
+      store.put({ title: "한 권으로 끝내는 HTTP", author: "이워크", isbn: 234567 });
+      store.put({ title: "대세는 Indexed DB", author: "박디비", isbn: 345678 });
+    }
+    request.onsuccess = function() {
+      db = request.result;
+    };
+  </script>
+</body>
+</html>
