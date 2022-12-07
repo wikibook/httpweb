@@ -4,9 +4,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>그림으로 보는 웹/HTTP - 7장 상태 저장 방식 예제 코드</title>
+  <title>그림으로 보는 HTTP와 웹 - 7장 실습 페이지</title>
+  <style>
+    li + li { margin-top: 10px; }
+    img { margin-top: 10px; }
+  </style>
 </head>
 <body>
+  <h2><그림으로 배우는 HTTP와 웹> 도서의 쿠키, 웹 스토리지, IndexedDB 실습 페이지</h2>
+  이 페이지는 7장의 실습 페이지입니다.<br />
+  다음과 같은 단계에 따라 본문에서 설명한 스토리지 정보를 직접 확인하실 수 있습니다.<br />
+  <hr />
+  <h3>7.2, 7.3. 스토리지 정보 확인</h3>
+  <ol>
+    <li>
+      마우스 오른쪽 버튼을 누른 뒤 검사 버튼을 누르거나 단축키 F12를 눌러 웹 브라우저 도구를 엽니다.<br />
+      <img width="336" alt="도구" src="https://user-images.githubusercontent.com/38487811/206273524-8e201f30-dd43-4ef2-94fc-daae2c4cbaf7.png">
+    </li>
+    <li>
+      상단바에서 Application 탭을 클릭합니다.<br />
+      <img width="800" alt="application" src="https://user-images.githubusercontent.com/38487811/206274457-631e5fc4-59e7-421f-b6eb-7ab55cda847e.png">
+    </li>
+    <li>
+      좌측 메뉴에서 Cookies, Local Storage, Session Storage, IndexedDB를 클릭해 각 스토리지 정보를 확인합니다.<br />
+      <img width="800" alt="application2" src="https://user-images.githubusercontent.com/38487811/206274445-5e87ba0d-2ae6-4185-bcaf-28eb9639ded1.png">
+    </li>
+  </ol>
+  <hr />
+  <h3>7.3.1. 로컬 스토리지 데이터 변경하기</h3>
+  <ol>
+    <li>마우스 오른쪽 버튼을 누른 뒤 검사 버튼을 누르거나 단축키 F12를 눌러 웹 브라우저 도구를 엽니다.</li>
+    <li>
+      상단바에서 Console 탭을 클릭합니다.<br />
+      <img width="800" alt="console" src="https://user-images.githubusercontent.com/38487811/206274456-115a26c4-ae31-4093-821c-ef0292dca4ac.png">
+    </li>
+    <li>
+      예제의 코드를 작성하고 엔터를 눌러 데이터를 변경합니다.<br />
+      <img width="800" alt="console2" src="https://user-images.githubusercontent.com/38487811/206274452-7ff848f9-6e31-43ac-aeb7-de885d202da4.png">
+    </li>
+    <li>
+      앞서 스토리지 정보 확인 창으로 이동해 데이터가 변경된 것을 확인합니다.<br />
+      <img width="800" alt="console3" src="https://user-images.githubusercontent.com/38487811/206274436-eff02f0b-00a7-461d-8d32-415ec759bf94.png">
+    </li>
+  </ol>
   <script>
     // cookie
     function setCookie(c_name, value, exdays)
